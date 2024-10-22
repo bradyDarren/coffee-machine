@@ -20,6 +20,12 @@ recipes = {
         "water":30,
         "coffee":18,
         "milk":150
-
     }
+}
+
+money = {
+    "quarter": 25,
+    "dime": 10,
+    "nickle": 5, 
+    "penny": 1
 }
