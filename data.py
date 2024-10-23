@@ -24,8 +24,8 @@ recipes = {
 }
 
 money = {
-    "quarter": 25,
-    "dime": 10,
-    "nickle": 5, 
-    "penny": 1
+    "quarter": .25,
+    "dime": .10,
+    "nickle": .05, 
+    "penny": .01
 }
