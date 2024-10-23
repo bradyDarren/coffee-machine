@@ -2,6 +2,7 @@ from data import recipes, money, resources
 from art import logo
 
 def coin_calc(qcount, dcount, ncount, pcount):
+# takes coin qauntity and returns the sum of all the coins.
     qsum = qcount * money["quarter"]
     dsum = dcount * money["dime"]
     nsum = ncount * money["nickle"]
@@ -9,12 +10,10 @@ def coin_calc(qcount, dcount, ncount, pcount):
     total = psum + nsum + dsum + qsum
     return total
 
-print(coin_calc(5,3, 5,1))
+# test line
+# print(coin_calc(5,3, 5,1))
 
-# def report(): 
-
-
-def process_order(coin_total, coffee_selection):
+def transaction_cost(coin_total, coffee_selection):
     cost = recipes[coffee_selection]["cost"]
     if coin_total >= cost: 
         change = coin_total - cost
@@ -23,9 +22,22 @@ def process_order(coin_total, coffee_selection):
         change = coin_total - cost 
         return f"Please enter ${abs(change)} more to purchase your selected item."
 
-print(process_order(3.00,"latte"))
 
+# selection = recipes["latte"]
+# print(selection)
 
+# for key, value in selection.items():
+#     if key in resources: 
+#         print(f"{key} - {resources[key]-value}")
+
+def transaction_ingredients(user_selection):
+    ingredients_used = recipes[user_selection]
+    for key, value in ingredients_used.items():
+        if key in resources:
+            resources[key] = resources[key] - value
+    return resources
+
+print(transaction_ingredients("expresso"))
 # def order(): 
 #     user_choice = input("What would you like to order? (expresso/latte/cappuccino)")
 
