@@ -2,7 +2,8 @@
 resources = { 
     "water": 1000,
     "coffee": 1000,
-    "milk": 400
+    "milk": 400,
+    "money": 0
 }
 
 #type of coffee and the ingredients needed to make it.
