@@ -9,17 +9,20 @@ resources = {
 recipes = {
     "expresso":{
         "water": 30, 
-        "coffee": 18
+        "coffee": 18,
+        "cost": 3.25
     }, 
     "cappuccino":{
         "water":30,
         "coffee": 18,
-        "milk": 120
+        "milk": 120,
+        "cost": 4.25
     }, 
     "latte":{
         "water":30,
         "coffee":18,
-        "milk":150
+        "milk":150,
+        "cost": 4.50
     }
 }
 
