@@ -15,11 +15,15 @@ print(coin_calc(5,3, 5,1))
 
 
 def process_order(coin_total, coffee_selection):
-    if coin_total >= recipes[coffee_selection]["cost"]: 
-        change = coin_total - recipes[coffee_selection]["cost"]
-        return f"You ordered a {coffee_selection} for a total price of {change}." 
-    else: 
-        return f"Please enter {change} more to purchase your selected item."
+    cost = recipes[coffee_selection]["cost"]
+    if coin_total >= cost: 
+        change = coin_total - cost
+        return f"You ordered a {coffee_selection} for a total price of ${cost}, your change is ${change}." 
+    else:
+        change = coin_total - cost 
+        return f"Please enter ${abs(change)} more to purchase your selected item."
+
+print(process_order(3.00,"latte"))
 
 
 # def order(): 
