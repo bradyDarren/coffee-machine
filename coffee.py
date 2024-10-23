@@ -22,22 +22,19 @@ def transaction_cost(coin_total, coffee_selection):
         change = coin_total - cost 
         return f"Please enter ${abs(change)} more to purchase your selected item."
 
+print(list(recipes))
 
-# selection = recipes["latte"]
-# print(selection)
+# def transaction_ingredients(user_selection):
+#     while user_selection != "report" or user_selection != recipes:
+#         if user_selection == "report":
+#             return(resources) # enumerate the results of this return statement to display in a list form
+#         else:
+#             ingredients_used = recipes[user_selection]
+#             for key, value in ingredients_used.items():
+#                 if key in resources:
+#                     resources[key] = resources[key] - value
+#             return resources # enumerate the results of this return statement to display in a list form
 
-# for key, value in selection.items():
-#     if key in resources: 
-#         print(f"{key} - {resources[key]-value}")
-
-def transaction_ingredients(user_selection):
-    ingredients_used = recipes[user_selection]
-    for key, value in ingredients_used.items():
-        if key in resources:
-            resources[key] = resources[key] - value
-    return resources
-
-print(transaction_ingredients("expresso"))
 # def order(): 
 #     user_choice = input("What would you like to order? (expresso/latte/cappuccino)")
 
