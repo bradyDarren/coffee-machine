@@ -11,14 +11,16 @@ def coin_calc(qcount, dcount, ncount, pcount):
 
 print(coin_calc(5,3, 5,1))
 
-
-print(recipes["latte"]["cost"])
-
 # def report(): 
 
 
-# def process_order(coin_total, coffee_selection):
-#     if coin_total >= recipes[coffee_selection]["money"]
+def process_order(coin_total, coffee_selection):
+    if coin_total >= recipes[coffee_selection]["cost"]: 
+        change = coin_total - recipes[coffee_selection]["cost"]
+        return f"You ordered a {coffee_selection} for a total price of {change}." 
+    else: 
+        return f"Please enter {change} more to purchase your selected item."
+
 
 # def order(): 
 #     user_choice = input("What would you like to order? (expresso/latte/cappuccino)")
