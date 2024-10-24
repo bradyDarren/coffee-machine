@@ -15,6 +15,7 @@ def coin_calc(qcount, dcount, ncount, pcount):
 # print(a)
 
 def transaction_cost(coin_total, coffee_selection):
+# evaluates if the user desired selection and the sum of the coin input. 
     cost = recipes[coffee_selection]["cost"]
     if coin_total >= cost: 
         change = coin_total - cost
@@ -29,6 +30,7 @@ def transaction_cost(coin_total, coffee_selection):
 # print(b)
 
 def transaction_ingredients(user_selection):
+# evaluates if there are enough resources to fill the users desired order.
     ingredients_used = recipes[user_selection]
     for key in ingredients_used:
         if key in resources:
@@ -43,6 +45,7 @@ def transaction_ingredients(user_selection):
 # print(c)
 
 def check_num(prompt):
+# confirms if entered number is an integer.
     while True: 
         try:
             return int(input(prompt))
@@ -66,7 +69,7 @@ def order():
             if isinstance(ingredients_check,str):
                 print(ingredients_check)
                 continue
-        
+
         quarters_input = check_num("How many quarters would you like to input?: ")
         dimes_input = check_num("How many dimes would you like to input?: ")
         nickles_input = check_num("How many nickles would you like to input?: ")
@@ -74,7 +77,6 @@ def order():
         user_money = coin_calc(quarters_input, dimes_input, nickles_input, pennies_input)
         order_cost = transaction_cost(user_money, user_choice)
         print(order_cost)
-        
 print(order())
 
 
