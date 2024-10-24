@@ -62,7 +62,7 @@ def order():
             machine_on = False
         elif user_choice == "report":
             for key, value in resources.items():
-                print(f"{key} : ${value}")
+                print(f"{key} : {value}")
             continue
         elif user_choice in recipes:
             ingredients_check = transaction_ingredients(user_choice)
