@@ -22,7 +22,7 @@ def transaction_cost(coin_total, coffee_selection):
         return f"You ordered a {coffee_selection} for a total price of ${cost}, your change is ${round(change),2}." 
     else:
         change = coin_total - cost 
-        return f"Sorry amount inserted is not enough money. Please enter ${round(abs(change)),2} more to purchase your selected item."
+        return f"Sorry amount inserted is not enough money. Please enter ${(abs(change))} more to purchase your selected item."
 
 # test line
 b = transaction_cost(a,"latte")
@@ -45,6 +45,7 @@ def transaction_ingredients(user_selection):
     
 # test line
 c = transaction_ingredients("latte")
+print(c)
 
 def order():
     machine_on = True
@@ -53,15 +54,16 @@ def order():
         if user_choice == 'off':
             print("Coffee Machine is now turned off.")
             machine_on = False
-        else:
+        elif user_choice in recipes:
+            order_ingredients = transaction_ingredients(user_choice)
+            print(order_ingredients)
             quarters_input = int(input("How many quarters would you like to input?: "))
             dimes_input = int(input("How many dimes would you like to input?: "))
             nickles_input = int(input("How many nickles would you like to input?: "))
             pennies_input = int(input("How many pennies would you like to input?: "))
             user_money = coin_calc(quarters_input, dimes_input, nickles_input, pennies_input)
-            order_ingredients = transaction_ingredients(user_choice)
             order_cost = transaction_cost(user_money, user_choice)
-        return order_cost
+            return order_cost
         
 print(order())
 
