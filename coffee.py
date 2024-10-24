@@ -17,26 +17,33 @@ def transaction_cost(coin_total, coffee_selection):
     cost = recipes[coffee_selection]["cost"]
     if coin_total >= cost: 
         change = coin_total - cost
+        resources["money"] += cost
         return f"You ordered a {coffee_selection} for a total price of ${cost}, your change is ${change}." 
     else:
         change = coin_total - cost 
-        return f"Please enter ${abs(change)} more to purchase your selected item."
+        return f"Sorry amount inserted is not enough money. Please enter ${abs(change)} more to purchase your selected item."
 
-print(list(recipes))
+for key in recipes['latte']:
+    print(key)
 
 # def transaction_ingredients(user_selection):
-#     while user_selection != "report" or user_selection != recipes:
-#         if user_selection == "report":
-#             return(resources) # enumerate the results of this return statement to display in a list form
-#         else:
-#             ingredients_used = recipes[user_selection]
-#             for key, value in ingredients_used.items():
-#                 if key in resources:
-#                     resources[key] = resources[key] - value
-#             return resources # enumerate the results of this return statement to display in a list form
+#     if user_selection == "report":
+#         return resources
+#     else:
+#         ingredients_used = recipes[user_selection]
+#         for key in ingredients_used:
+#             if key in resources:
+                
+#         return resources
 
-# def order(): 
-#     user_choice = input("What would you like to order? (expresso/latte/cappuccino)")
+# machine_on = True
+
+# def order():
+#     while machine_on: 
+#         user_choice = input("What would you like to order? (expresso/latte/cappuccino)").lower()
+#         if resources
+
+
 
 
 
