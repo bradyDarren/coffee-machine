@@ -42,15 +42,24 @@ def transaction_ingredients(user_selection):
 # c = transaction_ingredients("latte")    
 # print(c)
 
+def check_num(prompt):
+    while True: 
+        try:
+            return int(input(prompt))
+        except ValueError: 
+            print("Invalid input. Please input a number")
+    
+
 def order():
     machine_on = True
     while machine_on: 
-        user_choice = input("What would you like to order? (expresso/latte/cappuccino): ").lower()
+        user_choice = input("What would you like to order? (expresso/latte/cappuccino): ").lower().strip()
         if user_choice == 'off':
             print("Coffee Machine is now turned off.")
             machine_on = False
         elif user_choice == "report":
-            print(resources)
+            for key, value in resources.items():
+                print(f"{key} : ${value}")
             continue
         elif user_choice in recipes:
             ingredients_check = transaction_ingredients(user_choice)
@@ -58,13 +67,10 @@ def order():
                 print(ingredients_check)
                 continue
         
-        # 1. trim all of the input from the user just in case spaces are input
-        # 2. check to see if the input is infact an integer if not reask the question
-
-        quarters_input = int(input("How many quarters would you like to input?: "))
-        dimes_input = int(input("How many dimes would you like to input?: "))
-        nickles_input = int(input("How many nickles would you like to input?: "))
-        pennies_input = int(input("How many pennies would you like to input?: "))
+        quarters_input = check_num("How many quarters would you like to input?: ")
+        dimes_input = check_num("How many dimes would you like to input?: ")
+        nickles_input = check_num("How many nickles would you like to input?: ")
+        pennies_input = check_num("How many pennies would you like to input?: ")
         user_money = coin_calc(quarters_input, dimes_input, nickles_input, pennies_input)
         order_cost = transaction_cost(user_money, user_choice)
         print(order_cost)
