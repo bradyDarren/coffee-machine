@@ -64,6 +64,9 @@ def order():
             for key, value in resources.items():
                 print(f"{key} : {value}")
             continue
+        elif user_choice not in recipes:
+            print("Invalid Input. Please input a given choice.")
+            continue
         elif user_choice in recipes:
             ingredients_check = transaction_ingredients(user_choice)
             if isinstance(ingredients_check,str):
