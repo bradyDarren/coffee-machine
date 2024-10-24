@@ -23,17 +23,30 @@ def transaction_cost(coin_total, coffee_selection):
         change = coin_total - cost 
         return f"Sorry amount inserted is not enough money. Please enter ${abs(change)} more to purchase your selected item."
 
-def transaction_ingredients(user_selection):
-    if user_selection == "report":
-        return resources
-    else:
-        ingredients_used = recipes[user_selection]
-        for key, value in ingredients_used:
-            if key in resources:
-                resources[key] = resources[key] - value
-        return resources
+def trying(user_selection):
+    for key in recipes[user_selection]:
+        if key in resources:
+            resource1 = recipes[user_selection][key]
+            resource2 = resources[key]
 
-machine_on = True
+    if resource1 > resource2:
+        return f"{key} doesn't have enough to fullfill this order."
+    else: 
+        return "enough"
+            
+print(trying("latte"))
+
+# def transaction_ingredients(user_selection):
+#     if user_selection == "report":
+#         return resources
+#     else:
+#         ingredients_used = recipes[user_selection]
+#         for key, value in ingredients_used:
+#             if key in resources:
+#                 resources[key] = resources[key] - value
+#         return resources
+
+# machine_on = True
 
 # def order():
 #     while machine_on: 
